@@ -25,13 +25,11 @@ public class MainController {
     public ResponseEntity<List<User>> getUsers() {
         List<User> users = userDAO.findAll();
         return new ResponseEntity<>(users,HttpStatus.OK);
-        // ЧОМУ СТЕК ОВЕРФЛОУ??
     }
     @GetMapping("/users/{id}")
     public ResponseEntity<User> getUserById(@PathVariable int id){
         User user = userDAO.findById(id).get();
         return new ResponseEntity<>(user, HttpStatus.OK);
-        // ЧОМУ СТЕК ОВЕРФЛОУ??
     }
     @DeleteMapping("users/{id}")
     public void delUserById(@PathVariable int id){
@@ -42,7 +40,6 @@ public class MainController {
     public ResponseEntity<List<User>> getUserByName(@RequestParam String name){
         List<User> users = userDAO.findByName(name);
         return new ResponseEntity<>(users, HttpStatus.OK);
-        // ЧОМУ СТЕК ОВЕРФЛОУ??
     }
     @PatchMapping("/users")
     public ResponseEntity<User> updateUser (@RequestBody User user) {
