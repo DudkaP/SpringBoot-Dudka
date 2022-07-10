@@ -3,6 +3,8 @@ package com.example.springbootdudka.controllers.models;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @AllArgsConstructor
@@ -15,6 +17,9 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @NotEmpty
+    @Size(min = 3,message = "повинно бути більше 3 символів")
+    @Size(max = 10,message = "повинно бути менше 10 символів")
     private String name;
 
     @ToString.Exclude
