@@ -17,13 +17,10 @@ public class Passport {
 
     private String passNumber;
 
-//    @ToString.Exclude
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinTable(
-//            name = "user_pass",
-//            joinColumns = @JoinColumn(name = "pass"),
-//            inverseJoinColumns = @JoinColumn(name = "user")
-//    )
-//    private User user;
+    private String photo;
+    public Passport(String passNumber, String photo) {
+        this.passNumber = passNumber;
+        this.photo = photo;
+    }
 
 }
