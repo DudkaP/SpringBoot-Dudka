@@ -19,15 +19,15 @@ public class UserController {
     private UserDAO userDAO;
     private UserService userService;
 
+    @GetMapping("")
+    public ResponseEntity<List<User>> getUsers() {
+        return new ResponseEntity<>(userService.findAll(), HttpStatus.OK);
+    }
+
     @PostMapping("")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void saveUser(@RequestBody @Valid User user) {
         userService.save(user);
-    }
-
-    @GetMapping("")
-    public ResponseEntity<List<User>> getUsers() {
-        return new ResponseEntity<>(userService.findAll(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
